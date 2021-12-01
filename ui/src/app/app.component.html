@@ -1,0 +1,33 @@
+<h1>Scan GitLab Repository</h1>
+<div class="info-text">
+  <label>Below, you can specify a local directory path or a GitLab url to scan files from.
+    Additionally, you can specify the output format in order to display further file information
+    such as file type, or size. The path of each file will be always displayed per default.
+  </label>
+</div>
+<form #scanForm="ngForm">
+  <div class="fluid formgrid grid"> 
+    <div class="field col-12">
+      <label class="label-style">Specify path or url to scan:</label>
+      <div class="field">      
+        <input style="width:40em;" id="path" type="text" pInputText name="path" class="form-control"
+        required aria-describedby="path" #name="ngModel"
+          [(ngModel)]="path" [ngClass]="path === '' ? 'ng-invalid ng-dirty' : '' " required/>
+        <div *ngIf="path === '' && scanForm.dirty">
+          <small id="path" class="p-error">Path or url required.</small>
+        </div>
+      </div>
+    </div>
+    <div class="field col-12">
+      <label class="label-style">Specify output format:</label>
+      <div *ngFor="let mode of modes" class="field-radiobutton">
+        <p-radioButton [inputId]="mode.key" name="mode" [value]="mode" [(ngModel)]="selectedMode"></p-radioButton>
+        <label [for]="mode.key">{{mode.name}}</label>
+      </div>
+    </div>
+    <div class="field col-6">
+      <p-button label="Scan" [disabled]="!path || path === ''" (onClick)="submit()"></p-button>
+    </div>
+  </div>
+</form>
+<app-scan-overview [data]="fileData"></app-scan-overview>
