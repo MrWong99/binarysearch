@@ -28,3 +28,11 @@ $> ./scan_folder_for_binary.sh "<path>" [<mode>] # Uses find and the "file" util
 To build the Go binary for your operating system yourself you need to install Go and then run
 
 `go build .`
+
+## Special note for Virus detection
+
+Windows Defender tends to detect the binarysearch.exe as Virus even though it is not.
+The entire Source Code used to build the binary is in this repository so you can easily check if it is malicious and even build it locally by yourself.
+
+If you want to disable the Windows Defender threat protection for this file you can follow [this article](https://www.ghacks.net/2017/11/23/how-to-handle-failed-downloads-virus-detected-issues-on-windows-10/)
+however do use caution with these procedures!
