@@ -1,9 +1,12 @@
 # Check paths for binary files
 
 This repo contains 3 ways of checking for binary files but all have the same usage.
-Downloads for each version can be found on the [Releases page](/releases).
+Downloads for each version can be found on the [Releases page](https://github.com/MrWong99/binarysearch/releases).
 
 ## Usage
+
+Go to the [Releases page](https://github.com/MrWong99/binarysearch/releases) and download one of or all the binaries you want.
+Change the file to be executable: `chmod +x <file>`
 
 ```sh
 $> ./binarysearch[.exe] "<path>" [<mode>] # Uses a very fast Go binary -> this should be preferred for speed
